@@ -1,0 +1,126 @@
+avcoe@avcoe-desktop:~$ idlj -fall  ReverseModule.idl
+avcoe@avcoe-desktop:~$  javac *.java  ReverseModule/*.java
+Note: Client.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: ReverseModule/ReversePOA.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+avcoe@avcoe-desktop:~$ orbd -ORBInitialPort 1050&
+[1] 14444
+avcoe@avcoe-desktop:~$ Feb 12, 2024 12:15:45 AM com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl initialize
+SEVERE: "IOP00410216: (COMM_FAILURE) Unable to create listener thread on the specified port: 1049"
+org.omg.CORBA.COMM_FAILURE:   vmcid: SUN  minor code: 216  completed: No
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2632)
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2651)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:164)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.getAcceptors(CorbaTransportManagerImpl.java:217)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.addToIORTemplate(CorbaTransportManagerImpl.java:234)
+	at com.sun.corba.se.spi.oa.ObjectAdapterBase.initializeTemplate(ObjectAdapterBase.java:122)
+	at com.sun.corba.se.impl.oa.toa.TOAImpl.<init>(TOAImpl.java:96)
+	at com.sun.corba.se.impl.oa.toa.TOAFactory.getTOA(TOAFactory.java:90)
+	at com.sun.corba.se.impl.orb.ORBImpl.connect(ORBImpl.java:1633)
+	at com.sun.corba.se.impl.activation.RepositoryImpl.<init>(RepositoryImpl.java:94)
+	at com.sun.corba.se.impl.activation.ORBD.startActivationObjects(ORBD.java:274)
+	at com.sun.corba.se.impl.activation.ORBD.run(ORBD.java:129)
+	at com.sun.corba.se.impl.activation.ORBD.main(ORBD.java:343)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:463)
+	at sun.nio.ch.Net.bind(Net.java:455)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:67)
+	at com.sun.corba.se.impl.transport.DefaultSocketFactoryImpl.createServerSocket(DefaultSocketFactoryImpl.java:83)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:160)
+	... 10 more
+
+Feb 12, 2024 12:15:45 AM com.sun.corba.se.impl.orb.ORBImpl connect
+WARNING: "IOP02310202: (OBJ_ADAPTER) Error in connecting servant to ORB"
+org.omg.CORBA.OBJ_ADAPTER:   vmcid: SUN  minor code: 202  completed: No
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.orbConnectError(ORBUtilSystemException.java:8549)
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.orbConnectError(ORBUtilSystemException.java:8567)
+	at com.sun.corba.se.impl.orb.ORBImpl.connect(ORBImpl.java:1635)
+	at com.sun.corba.se.impl.activation.RepositoryImpl.<init>(RepositoryImpl.java:94)
+	at com.sun.corba.se.impl.activation.ORBD.startActivationObjects(ORBD.java:274)
+	at com.sun.corba.se.impl.activation.ORBD.run(ORBD.java:129)
+	at com.sun.corba.se.impl.activation.ORBD.main(ORBD.java:343)
+Caused by: org.omg.CORBA.COMM_FAILURE:   vmcid: SUN  minor code: 216  completed: No
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2632)
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2651)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:164)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.getAcceptors(CorbaTransportManagerImpl.java:217)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.addToIORTemplate(CorbaTransportManagerImpl.java:234)
+	at com.sun.corba.se.spi.oa.ObjectAdapterBase.initializeTemplate(ObjectAdapterBase.java:122)
+	at com.sun.corba.se.impl.oa.toa.TOAImpl.<init>(TOAImpl.java:96)
+	at com.sun.corba.se.impl.oa.toa.TOAFactory.getTOA(TOAFactory.java:90)
+	at com.sun.corba.se.impl.orb.ORBImpl.connect(ORBImpl.java:1633)
+	... 4 more
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:463)
+	at sun.nio.ch.Net.bind(Net.java:455)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:67)
+	at com.sun.corba.se.impl.transport.DefaultSocketFactoryImpl.createServerSocket(DefaultSocketFactoryImpl.java:83)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:160)
+	... 10 more
+
+Usage: orbd <options> 
+
+where <options> includes:
+  -port                  Activation Port where the ORBD should be started, default 1049 (optional)
+  -defaultdb             Directory for ORBD files, default "./orb.db" (optional)
+  -serverid              Server Id for ORBD, default 1 (optional)
+  -ORBInitialPort        Initial Port (required)
+  -ORBInitialHost        Initial HostName (required)
+
+org.omg.CORBA.OBJ_ADAPTER:   vmcid: SUN  minor code: 202  completed: No
+org.omg.CORBA.OBJ_ADAPTER:   vmcid: SUN  minor code: 202  completed: No
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.orbConnectError(ORBUtilSystemException.java:8549)
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.orbConnectError(ORBUtilSystemException.java:8567)
+	at com.sun.corba.se.impl.orb.ORBImpl.connect(ORBImpl.java:1635)
+	at com.sun.corba.se.impl.activation.RepositoryImpl.<init>(RepositoryImpl.java:94)
+	at com.sun.corba.se.impl.activation.ORBD.startActivationObjects(ORBD.java:274)
+	at com.sun.corba.se.impl.activation.ORBD.run(ORBD.java:129)
+	at com.sun.corba.se.impl.activation.ORBD.main(ORBD.java:343)
+Caused by: org.omg.CORBA.COMM_FAILURE:   vmcid: SUN  minor code: 216  completed: No
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2632)
+	at com.sun.corba.se.impl.logging.ORBUtilSystemException.createListenerFailed(ORBUtilSystemException.java:2651)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:164)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.getAcceptors(CorbaTransportManagerImpl.java:217)
+	at com.sun.corba.se.impl.transport.CorbaTransportManagerImpl.addToIORTemplate(CorbaTransportManagerImpl.java:234)
+	at com.sun.corba.se.spi.oa.ObjectAdapterBase.initializeTemplate(ObjectAdapterBase.java:122)
+	at com.sun.corba.se.impl.oa.toa.TOAImpl.<init>(TOAImpl.java:96)
+	at com.sun.corba.se.impl.oa.toa.TOAFactory.getTOA(TOAFactory.java:90)
+	at com.sun.corba.se.impl.orb.ORBImpl.connect(ORBImpl.java:1633)
+	... 4 more
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:463)
+	at sun.nio.ch.Net.bind(Net.java:455)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:67)
+	at com.sun.corba.se.impl.transport.DefaultSocketFactoryImpl.createServerSocket(DefaultSocketFactoryImpl.java:83)
+	at com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl.initialize(SocketOrChannelAcceptorImpl.java:160)
+	... 10 more
+
+[1]+  Done                    orbd -ORBInitialPort 1050
+avcoe@avcoe-desktop:~$   java ReverseServer -ORBInitialPort 1050& -ORBInitialHost localhost&
+[1] 14461
+[2] 14462
+avcoe@avcoe-desktop:~$ Reverse Object Created
+Step1
+Step2
+Step3
+Step4
+Reverse Server reading and waiting....
+-ORBInitialHost: command not found
+
+[2]+  Exit 127                -ORBInitialHost localhost
+avcoe@avcoe-desktop:~$  java ReverseClient -ORBInitialPort 1050 -ORBInitialHost localhost
+Enter String=
+Hello Kanishka                 
+Server Send akhsinaK olleH
+avcoe@avcoe-desktop:~$ 
+

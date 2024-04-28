@@ -1,0 +1,59 @@
+avcoe@avcoe-Vostro-3710:~$ g++ server.cpp
+avcoe@avcoe-Vostro-3710:~$ ./a.out
+Sever starts. Server pid is 5017 
+Server local clock is 2.000000 
+
+Server: server is listening ...
+
+You can open one or multiple new terminal windows now to run ./client
+
+You have connected 1 client(s) now.Server: new client accepted. client ip and port: 127.0.0.1:35010
+current connected clients amount is 1 
+Do you have enought clients? (please input '1' for yes, '0' for no):1
+
+Clients creation finished! There are totally 1 connected clients.
+Asking all clients to report their local clock value ... 
+
+
+Server: sent to client(127.0.0.1:35010): 'Hello from server, please tell me your local clock value.'
+Server: recv from client(127.0.0.1:35010): 'Hello from client, my local clock value is 7.000000' 
+Server: received client local clock (string) is 7.000000
+Server: received client local clock (float) is 7
+
+
+Server: sent to client(127.0.0.1:35010): 'From server, your clock adjustment offset is minus 2.500000'
+
+
+Server new local clock is 4.500000 
+
+Server: server stopped. 
+
+
+avcoe@avcoe-Vostro-3710:~$ g++ client.cpp
+avcoe@avcoe-Vostro-3710:~$ ./a.out
+Client starts. Client pid is 5189 
+Client local clock is 2.000000 
+
+Client: connected server(127.0.0.1:8080). 
+
+
+Client: read: ''
+Client: read: ''
+
+
+avcoe@avcoe-Vostro-3710:~$ g++ client.cpp
+avcoe@avcoe-Vostro-3710:~$ ./a.out
+Client starts. Client pid is 5134 
+Client local clock is 7.000000 
+
+Client: connected server(127.0.0.1:8080). 
+
+
+Client: read: 'Hello from server, please tell me your local clock value.'
+Client: sent message: 'Hello from client, my local clock value is 7.000000'
+Client: read: 'From server, your clock adjustment offset is minus 2.500000'
+Client: received local clock adjustment offset (string) is minus 2.500000
+Client: received local clock adjustment offset (float) is minus 2.5
+Client local clock is 4.500000 
+
+
